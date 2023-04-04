@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Tasks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4n-Ct-wbv">
+                                <rect key="frame" x="125.66666666666669" y="67" width="142" height="36"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="32"/>
+                                <color key="textColor" name="redText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLV-NJ-8bo">
+                                <rect key="frame" x="24" y="71" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="fAm-SI-c6l"/>
+                                    <constraint firstAttribute="width" constant="28" id="jBD-xa-gTO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="hemburg"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cK-SG-Q6x">
+                                <rect key="frame" x="341" y="71" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="5Km-VI-Axp"/>
+                                    <constraint firstAttribute="width" constant="28" id="xrP-Li-LGc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="Search"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whats on your mind?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGg-0P-2ef">
+                                <rect key="frame" x="24" y="150" width="184.66666666666666" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="redText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-64-y4T" customClass="TodoCollectionView" customModule="Task_Manager" customModuleProvider="target">
+                                <rect key="frame" x="24" y="204" width="345" height="614"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wLV-NJ-8bo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="2b8-YE-HNR"/>
+                            <constraint firstItem="Y5N-64-y4T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="6hf-Zz-0Nj"/>
+                            <constraint firstItem="wGg-0P-2ef" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="BSt-PP-VIt"/>
+                            <constraint firstItem="c4n-Ct-wbv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Fq7-EY-Yb1"/>
+                            <constraint firstItem="wGg-0P-2ef" firstAttribute="top" secondItem="wLV-NJ-8bo" secondAttribute="bottom" constant="51" id="Spb-3B-V8j"/>
+                            <constraint firstItem="c4n-Ct-wbv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YvK-TU-AQv"/>
+                            <constraint firstItem="wLV-NJ-8bo" firstAttribute="centerY" secondItem="c4n-Ct-wbv" secondAttribute="centerY" id="a7k-AW-ngn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4cK-SG-Q6x" secondAttribute="trailing" constant="24" id="eXa-nA-jL6"/>
+                            <constraint firstItem="Y5N-64-y4T" firstAttribute="top" secondItem="wGg-0P-2ef" secondAttribute="bottom" constant="30" id="ejo-2h-2jR"/>
+                            <constraint firstItem="c4n-Ct-wbv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hCm-lg-HEc"/>
+                            <constraint firstItem="4cK-SG-Q6x" firstAttribute="centerY" secondItem="c4n-Ct-wbv" secondAttribute="centerY" id="hTP-RT-sPO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y5N-64-y4T" secondAttribute="trailing" constant="24" id="iqg-fa-fpa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y5N-64-y4T" secondAttribute="bottom" id="yFI-bM-R5M"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YvK-TU-AQv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="4"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Search" width="23" height="23"/>
+        <image name="hemburg" width="28" height="27"/>
+        <namedColor name="redText">
+            <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
