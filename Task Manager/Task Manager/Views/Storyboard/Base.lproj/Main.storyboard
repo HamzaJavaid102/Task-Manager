@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vwr-9K-a6T">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Task List Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TaskListController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,8 +38,12 @@
                                     <constraint firstAttribute="height" constant="28" id="5Km-VI-Axp"/>
                                     <constraint firstAttribute="width" constant="28" id="xrP-Li-LGc"/>
                                 </constraints>
+                                <color key="tintColor" name="redText"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="Search"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="plusBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nge-qb-JVv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whats on your mind?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGg-0P-2ef">
                                 <rect key="frame" x="24" y="150" width="184.66666666666666" height="24"/>
@@ -75,17 +79,144 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="HPH-xf-ZXc"/>
+                    <connections>
+                        <outlet property="todoCollectionView" destination="Y5N-64-y4T" id="AKf-7H-oAW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="4"/>
+            <point key="canvasLocation" x="863.35877862595419" y="3.5211267605633805"/>
+        </scene>
+        <!--Add Task Controller-->
+        <scene sceneID="pnN-aB-vCt">
+            <objects>
+                <viewController storyboardIdentifier="AddTaskController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ira-cc-jfe" customClass="AddTaskController" customModule="Task_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SU0-rw-vgn">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Task" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUb-Ug-BVy">
+                                <rect key="frame" x="125.66666666666667" y="67" width="141.66666666666663" height="36"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="32"/>
+                                <color key="textColor" name="redText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPd-x6-2L5">
+                                <rect key="frame" x="24" y="71" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="rrh-qZ-Ie0"/>
+                                    <constraint firstAttribute="width" constant="28" id="zdb-qe-pEC"/>
+                                </constraints>
+                                <color key="tintColor" name="redText"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="backBtnTapped" destination="Ira-cc-jfe" eventType="touchUpInside" id="8Ip-Kp-yIe"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ro9-c2-lMx">
+                                <rect key="frame" x="12" y="153" width="369" height="230"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7q-K8-gIp" customClass="TodoTFView" customModule="Task_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="109"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Task Title"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="title..."/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-uc-cjI" customClass="TodoTFView" customModule="Task_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="121" width="369" height="109"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Task"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="Write anything in your mind "/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="iF8-A2-fcO"/>
+                                    <constraint firstAttribute="height" constant="230" id="uqg-hS-5gc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iF8-A2-fcO"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d2-KR-n74">
+                                <rect key="frame" x="24" y="407" width="345" height="45"/>
+                                <color key="backgroundColor" name="theme"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="NvC-7O-0mA"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <fontDescription key="titleFontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
+                                    <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveBtnTapped:" destination="Ira-cc-jfe" eventType="touchUpInside" id="RTG-H5-ZRo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KrG-sK-vr6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2d2-KR-n74" firstAttribute="top" secondItem="ro9-c2-lMx" secondAttribute="bottom" constant="24" id="DhH-Z4-Ekm"/>
+                            <constraint firstItem="2d2-KR-n74" firstAttribute="trailing" secondItem="Kgo-uc-cjI" secondAttribute="trailing" constant="-12" id="F1I-x1-9P7"/>
+                            <constraint firstItem="ro9-c2-lMx" firstAttribute="top" secondItem="UUb-Ug-BVy" secondAttribute="bottom" constant="50" id="K90-Vo-bPl"/>
+                            <constraint firstItem="KrG-sK-vr6" firstAttribute="trailing" secondItem="ro9-c2-lMx" secondAttribute="trailing" constant="12" id="NEQ-9n-XaS"/>
+                            <constraint firstItem="2d2-KR-n74" firstAttribute="leading" secondItem="Kgo-uc-cjI" secondAttribute="leading" constant="12" id="OYR-Na-NXM"/>
+                            <constraint firstItem="UUb-Ug-BVy" firstAttribute="top" secondItem="KrG-sK-vr6" secondAttribute="top" constant="8" id="QSJ-if-1KC"/>
+                            <constraint firstItem="TPd-x6-2L5" firstAttribute="centerY" secondItem="UUb-Ug-BVy" secondAttribute="centerY" id="SeJ-7S-rbM"/>
+                            <constraint firstItem="UUb-Ug-BVy" firstAttribute="centerX" secondItem="SU0-rw-vgn" secondAttribute="centerX" id="e5p-st-8pf"/>
+                            <constraint firstItem="TPd-x6-2L5" firstAttribute="leading" secondItem="KrG-sK-vr6" secondAttribute="leading" constant="24" id="udu-mh-ZO1"/>
+                            <constraint firstItem="ro9-c2-lMx" firstAttribute="leading" secondItem="KrG-sK-vr6" secondAttribute="leading" constant="12" id="xb6-no-LxT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="taskTFView" destination="Kgo-uc-cjI" id="Lkb-EN-Fxo"/>
+                        <outlet property="titleTFView" destination="A7q-K8-gIp" id="ITY-bE-EMK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="32f-ZV-GYX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730.534351145038" y="3.5211267605633805"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zts-nL-4wm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Vwr-9K-a6T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s7M-JB-idE">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AEx-4C-X6v"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oNj-sl-Dwn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.358778625954194" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Search" width="23" height="23"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="hemburg" width="28" height="27"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="redText">
             <color red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="theme">
+            <color red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

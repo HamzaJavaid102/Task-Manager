@@ -16,19 +16,91 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="327" height="81"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPb-sa-SGK">
+                        <rect key="frame" x="12" y="26.666666666666671" width="28" height="28"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="I2f-rg-d3H"/>
+                            <constraint firstAttribute="width" constant="28" id="eb3-NU-9tX"/>
+                        </constraints>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="square" catalog="system"/>
+                        <connections>
+                            <action selector="selectBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="EQb-Ul-TM9"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jdf-9U-9gS">
+                        <rect key="frame" x="54" y="12" width="221" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="GbG-ow-Vy0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJa-ws-Vmh">
+                        <rect key="frame" x="54" y="49" width="221" height="20"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLn-9r-rEZ">
+                        <rect key="frame" x="287" y="26.666666666666671" width="28" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="fgT-JX-APZ"/>
+                            <constraint firstAttribute="width" constant="28" id="w0N-Yr-pak"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="trash"/>
+                        <connections>
+                            <action selector="deleteBtnTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="r7r-Vc-2Oi"/>
+                        </connections>
+                    </button>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" name="theme"/>
+            <constraints>
+                <constraint firstItem="CLn-9r-rEZ" firstAttribute="leading" secondItem="Jdf-9U-9gS" secondAttribute="trailing" constant="12" id="Fd7-WG-uoe"/>
+                <constraint firstItem="Jdf-9U-9gS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="TkY-zP-r6F"/>
+                <constraint firstItem="BJa-ws-Vmh" firstAttribute="leading" secondItem="Jdf-9U-9gS" secondAttribute="leading" id="VEh-0a-1Oe"/>
+                <constraint firstAttribute="trailing" secondItem="CLn-9r-rEZ" secondAttribute="trailing" constant="12" id="VLC-H2-YmT"/>
+                <constraint firstAttribute="bottom" secondItem="BJa-ws-Vmh" secondAttribute="bottom" constant="12" id="XTD-GT-8cj"/>
+                <constraint firstAttribute="trailing" secondItem="BJa-ws-Vmh" secondAttribute="trailing" constant="24" id="dtR-ix-bCo"/>
+                <constraint firstItem="cPb-sa-SGK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="ebr-Ig-OaH"/>
+                <constraint firstItem="BJa-ws-Vmh" firstAttribute="top" secondItem="Jdf-9U-9gS" secondAttribute="bottom" constant="10" id="f57-Y5-E0O"/>
+                <constraint firstAttribute="trailing" secondItem="Jdf-9U-9gS" secondAttribute="trailing" constant="24" id="gTq-PX-0od"/>
+                <constraint firstItem="cPb-sa-SGK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="hqm-Gk-05A"/>
+                <constraint firstItem="Jdf-9U-9gS" firstAttribute="leading" secondItem="cPb-sa-SGK" secondAttribute="trailing" constant="14" id="pgT-0l-Dmp"/>
+                <constraint firstItem="CLn-9r-rEZ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="sHu-X9-Wre"/>
+                <constraint firstItem="CLn-9r-rEZ" firstAttribute="leading" secondItem="BJa-ws-Vmh" secondAttribute="trailing" constant="12" id="tN3-TP-2ki"/>
+            </constraints>
             <size key="customSize" width="327" height="81"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                     <real key="value" value="20"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="gTq-PX-0od"/>
+                    <exclude reference="dtR-ix-bCo"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="deleteBtn" destination="CLn-9r-rEZ" id="vWd-NC-5Nr"/>
+                <outlet property="selectBtn" destination="cPb-sa-SGK" id="p93-Ga-c6f"/>
+                <outlet property="taskLbl" destination="BJa-ws-Vmh" id="PGW-XW-8sN"/>
+                <outlet property="titleLbl" destination="Jdf-9U-9gS" id="TvI-0h-yR8"/>
+            </connections>
             <point key="canvasLocation" x="150.38167938931298" y="30.633802816901412"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="square" catalog="system" width="128" height="114"/>
+        <image name="trash" width="24" height="27"/>
         <namedColor name="theme">
             <color red="1" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
