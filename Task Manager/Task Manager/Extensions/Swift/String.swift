@@ -45,6 +45,10 @@ extension String {
         UIImage(named: "\(self)")!
     }
     
+    var toSystemImage: UIImage {
+        UIImage(systemName: "\(self)")!
+    }
+    
     func boldFontWith(size: CGFloat) -> UIFont {
         for font in UIFont.fontNames(forFamilyName: self) {
             if font.lowercased().contains("bold") || font.lowercased().contains("heavy") {
